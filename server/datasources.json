@@ -1,0 +1,15 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "cloudant": {
+    "url": "https://deep-pockets-db-bluemix.cloudant.com",
+    "database": "deep-pockets-db",
+    "username": "",
+    "password": "",
+    "name": "cloudant",
+    "modelIndex": "",
+    "connector": "cloudant"
+  }
+}

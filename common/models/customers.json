@@ -1,0 +1,84 @@
+{
+  "name": "Customers",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "TimeStamp": true
+  },
+  "properties": {
+    "firstname": {
+      "type": "string",
+      "required": true
+    },
+    "lastname": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "pincode": {
+      "type": "number"
+    },
+    "avatar": {
+      "type": "string",
+      "default": "img/faces/face-1.jpg"
+    },
+    "theme": {
+      "type": "string",
+      "default": "purple"
+    },
+    "wallpaper": {
+      "type": "string",
+      "default": "img/sidebar4.jpg"
+    },
+    "currency": {
+      "type": "string",
+      "default": "dollar"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "transactions": {
+      "type": "hasMany",
+      "model": "Transactions",
+      "foreignKey": "customerId"
+    },
+    "accounts": {
+      "type": "hasMany",
+      "model": "Accounts",
+      "foreignKey": "customerId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}
